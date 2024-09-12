@@ -9,6 +9,7 @@
         }
         table {
             margin-top: 20px;
+            margin-left: 20px;
             border-collapse: collapse;
         }
 
@@ -16,12 +17,42 @@
             border: 1px solid black;
             padding: 8px;
         }
-         
+        .btn1{
+            border-radius: 5px;
+            background-color: #f44336;
+            padding: 10px 24px;
+            cursor: pointer;
+        }
+        .btn1:hover {
+            background-color: #e2dbda;
+        }
+        .btn2{
+            border-radius: 5px;
+            padding: 5px 12px;
+            background-color: #8ef071;
+            cursor: pointer;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
     </style>
+    
     <title>Home Page</title>
 </head>
 <body>
-    <h1>URL Shortener</h1>
+    <div class="header">
+        <h1>URL Shortener</h1>
+        <form action="/user/logout" method="post">
+            <button type="submit" class="btn1">Logout</button>
+        </form>
+    </div>
+    
     <% if (locals.id) { %>
         <p>URL Generated : http://localhost:8001/url/<%= id  %></p>
     <% } %>
@@ -30,7 +61,7 @@
         <form method="post" action="/url">
             <label>Enter Your URL :</label>
             <input type="text" name="url" placeholder="https://example.com">
-            <button type="submit">Generate</button>
+            <button type="submit" class="button btn2">Generate</button>
         </form>
     </div>
     <div>
@@ -55,5 +86,6 @@
             </table>
         <% } %>
     </div>
+    
 </body>
 </html>
